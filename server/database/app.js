@@ -58,7 +58,7 @@ app.get('/fetchReviews/dealer/:id', async (req, res) => {
 
 // Express route to fetch all dealerships
 app.get('/fetchDealers', async (req, res) => {
-try {
+    try {
         let documents = await Dealerships.find();
         res.json(documents);
     } catch (error) {
@@ -68,7 +68,7 @@ try {
 
 // Express route to fetch Dealers by a particular state
 app.get('/fetchDealers/:state', async (req, res) => {
-let formattedState = req.params.state[0].toUpperCase();
+    let formattedState = req.params.state[0].toUpperCase();
     formattedState += req.params.state.slice(1);
     try {
         let documents = await Dealerships.find({state: formattedState});
@@ -80,7 +80,7 @@ let formattedState = req.params.state[0].toUpperCase();
 
 // Express route to fetch dealer by a particular id
 app.get('/fetchDealer/:id', async (req, res) => {
- try {
+    try {
         let documents = await Dealerships.find({id: req.params.id});
         res.json(documents);
     } catch (error) {
